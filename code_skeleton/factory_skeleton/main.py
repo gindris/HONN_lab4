@@ -1,7 +1,7 @@
-from PizzaStores.ChicagoStylePizzaStore import ChicagoStylePizzaStore
-from PizzaStores.NYStylePizzaStore import NYStylePizzaStore
-from PizzaStores.PizzaStore import PizzaStore
-from pizzas.PizzaType import PizzaType
+from factory_skeleton.PizzaStores.ChicagoStylePizzaStore import ChicagoStylePizzaStore
+from factory_skeleton.PizzaStores.NYStylePizzaStore import NYStylePizzaStore
+from factory_skeleton.PizzaStores.PizzaStore import PizzaStore
+from factory_skeleton.pizzas.PizzaType import PizzaType
 
 
 def order_all_pizzas_from_pizza_store(pizza_store: PizzaStore):

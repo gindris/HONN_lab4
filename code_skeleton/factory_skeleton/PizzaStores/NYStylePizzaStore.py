@@ -1,18 +1,20 @@
-from PizzaStores.PizzaStore import PizzaStore
-from pizzas import Pizza, CheesePizza, ClamPizza, PepperoniPizza, VeggiePizza
-from ingredient_factories.NYPizzaIngredientFactory import NYPizzaIngredientFactory
+from factory_skeleton.PizzaStores.PizzaStore import PizzaStore
+from factory_skeleton.pizzas import Pizza, CheesePizza, ClamPizza, PepperoniPizza, VeggiePizza, PizzaType
+from factory_skeleton.ingredient_factories.NYPizzaIngredientFactory import NYPizzaIngredientFactory
 
-#erfir Pizzastore, fær að implementa create_pizza sjálfur
 class NYStylePizzaStore(PizzaStore):
     
-    def create_pizza(self, pizza_type) -> Pizza: #TODO: add pizza_type parameter
-        if pizza_type == 'CHEESE':
+    def create_pizza(self, pizza_type) -> Pizza: 
+        print('pizza type: ', pizza_type)
+        if pizza_type == PizzaType.CHEESE:
             return CheesePizza(NYPizzaIngredientFactory())
-        elif pizza_type == 'CLAM':
+        elif pizza_type == PizzaType.CLAM:
             return ClamPizza(NYPizzaIngredientFactory())
-        elif pizza_type == 'PEPPERONI':
+        elif pizza_type == PizzaType.PEPPERONI:
             return PepperoniPizza(NYPizzaIngredientFactory())
-        elif pizza_type == 'VEGGIE':
+        elif pizza_type == PizzaType.VEGGIE:
             return VeggiePizza(NYPizzaIngredientFactory())
+        else:
+            return CheesePizza(NYPizzaIngredientFactory()) # default to cheese pizza
 
 

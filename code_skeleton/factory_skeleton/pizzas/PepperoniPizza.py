@@ -1,4 +1,4 @@
-from pizzas import Pizza
+from pizzas.Pizza import Pizza
 
 
 class PepperoniPizza(Pizza):
