@@ -14,7 +14,6 @@ def order_all_pizzas_from_pizza_store(pizza_store: PizzaStore):
 if __name__ == '__main__':
     print('\n\n--- New York Style Pizzas ---\n\n')
     pizza_store = NYStylePizzaStore()
-    #print(pizza_store.order_pizza(PizzaType.CHEESE))
     order_all_pizzas_from_pizza_store(pizza_store)
 
     print('\n\n--- Chicago Style Pizzas ---\n\n')
