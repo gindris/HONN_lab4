@@ -1,10 +1,13 @@
-from factory_skeleton.ingredient_factories.PizzaIngredientFactory import PizzaIngredientFactory
-from factory_skeleton.ingredients.dough.ThinCrustDough import ThinCrustDough
-from factory_skeleton.ingredients.sauce.MarinaraSauce import MarinaraSauce
-from factory_skeleton.ingredients.cheese.ReggianoCheese import ReggianoCheese
-from factory_skeleton.ingredients.clams.FreshClams import FreshClams
-from factory_skeleton.ingredients.pepperoni.SlicedPepperoni import SlicedPepperoni
-from factory_skeleton.ingredients.veggies import Garlic, Onion, Mushroom, RedPepper
+from ingredient_factories.PizzaIngredientFactory import PizzaIngredientFactory
+from ingredients.dough.ThinCrustDough import ThinCrustDough
+from ingredients.sauce.MarinaraSauce import MarinaraSauce
+from ingredients.cheese.ReggianoCheese import ReggianoCheese
+from ingredients.clams.FreshClams import FreshClams
+from ingredients.pepperoni.SlicedPepperoni import SlicedPepperoni
+from ingredients.veggies.Garlic import Garlic
+from ingredients.veggies.Onion import Onion
+from ingredients.veggies.Mushroom import Mushroom
+from ingredients.veggies.RedPepper import RedPepper
 
 class NYPizzaIngredientFactory(PizzaIngredientFactory):
     def __init__(self):

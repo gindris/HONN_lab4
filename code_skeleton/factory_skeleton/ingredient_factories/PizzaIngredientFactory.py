@@ -1,11 +1,11 @@
 from abc import ABC, abstractmethod
-from factory_skeleton.ingredients.cheese import Cheese
-from factory_skeleton.ingredients.clams import Clams
-from factory_skeleton.ingredients.dough import Dough
-from factory_skeleton.ingredients.pepperoni import Pepperoni
-from factory_skeleton.ingredients.sauce import Sauce
-from factory_skeleton.ingredients.veggies import Veggies
 from typing import List
+from ingredients.cheese.Cheese import Cheese
+from ingredients.clams.Clams import Clams
+from ingredients.dough.Dough import Dough
+from ingredients.pepperoni.Pepperoni import Pepperoni
+from ingredients.sauce.Sauce import Sauce
+from ingredients.veggies.Veggies import Veggies
 
 #abstrac/iteface fyrir NY og Chicago ingredient factories að erfa
 class PizzaIngredientFactory(ABC):

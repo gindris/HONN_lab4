@@ -1,20 +1,30 @@
-from factory_skeleton.PizzaStores.PizzaStore import PizzaStore
-from factory_skeleton.pizzas import Pizza, CheesePizza, ClamPizza, PepperoniPizza, VeggiePizza, PizzaType
-from factory_skeleton.ingredient_factories.NYPizzaIngredientFactory import NYPizzaIngredientFactory
+from PizzaStores.PizzaStore import PizzaStore
+from pizzas.Pizza import Pizza
+from pizzas.CheesePizza import CheesePizza
+from pizzas.ClamPizza import ClamPizza
+from pizzas.PepperoniPizza import PepperoniPizza
+from pizzas.VeggiePizza import VeggiePizza
+from pizzas.PizzaType import PizzaType
+from ingredient_factories.NYPizzaIngredientFactory import NYPizzaIngredientFactory
 
 class NYStylePizzaStore(PizzaStore):
     
     def create_pizza(self, pizza_type) -> Pizza: 
-        print('pizza type: ', pizza_type)
         if pizza_type == PizzaType.CHEESE:
-            return CheesePizza(NYPizzaIngredientFactory())
+            pizza = CheesePizza(NYPizzaIngredientFactory())
+            pizza.set_name('New York Style Cheese Pizza')
+            return pizza
         elif pizza_type == PizzaType.CLAM:
-            return ClamPizza(NYPizzaIngredientFactory())
+            pizza = ClamPizza(NYPizzaIngredientFactory())
+            pizza.set_name('New York Style Clam Pizza')
+            return pizza
         elif pizza_type == PizzaType.PEPPERONI:
-            return PepperoniPizza(NYPizzaIngredientFactory())
-        elif pizza_type == PizzaType.VEGGIE:
-            return VeggiePizza(NYPizzaIngredientFactory())
-        else:
-            return CheesePizza(NYPizzaIngredientFactory()) # default to cheese pizza
+            pizza = PepperoniPizza(NYPizzaIngredientFactory())
+            pizza.set_name('New York Style Pepperoni Pizza')
+            return pizza
+        else: #default to veggie
+            pizza = VeggiePizza(NYPizzaIngredientFactory())
+            pizza.set_name('New York Style Veggie Pizza')
+            return pizza
 
 
