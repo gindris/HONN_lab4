@@ -1,0 +1,20 @@
+lab 4
+
+2
+2.1 Validator klasinn er invoker klasinn, Validation interfaceið er þá ráðandi með
+ validate() method sem allir concrete klasarnir eiga að útfæra. (Program to an interface not an implementation)
+ Með því að hafa validate() methodina í interfaceinu fá allir validation klasar sömu hegðun og Validator þarf ekki 
+ að vita um eða halda utan um hverja útfærslu fyrir sig.
+
+ MerchantAllowsModificationValidation, OrderisUnpaidValidation og BuyerHasAgreedToTermsValidation eru þá concrete validation
+ klasarnir sem notast við Validation interfaceið þar sem hver og einn er með sitt validation og sínar reglur. 
+ Hver og einn þessara klasa virkar eins og command í Command Pattern-inu, þar sem þeir taka ákvörðun um hvernig 
+ á að framkvæma validate() aðgerðina.
+
+ 2.2
+ kóði
+
+ 2.3 Staðurinn er main og object creationið er validation, þarna væri hægt að vera með factory validation sem væri einn klasi 
+ sem sæji um að búa til þá virkni sem beðið væri um.
+
+2.4

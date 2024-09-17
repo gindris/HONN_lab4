@@ -1,4 +1,8 @@
+from abc import ABC,abstractmethod
 
 
-class Validation:
-    pass
+class Validation(ABC):
+
+    @abstractmethod
+    def validate(self)-> bool:
+        pass
