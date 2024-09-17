@@ -1,16 +1,15 @@
-from pizzas import Pizza
-
+from pizzas.Pizza import Pizza
 
 class PepperoniPizza(Pizza):
     def __init__(self, ingredient_factory):
         self.ingredient_factory = ingredient_factory
     
     def prepare(self):
-        dough = self.ingredient_factory.create_dough()
-        sauce = self.ingredient_factory.create_sauce()
-        cheese = self.ingredient_factory.create_cheese()
-        pepperoni = self.ingredient_factory.create_pepperoni()
-        veggies = self.ingredient_factory.create_veggies()
+        print(f'Preparing {self._name}')
+        self._dough = self.ingredient_factory.create_dough()
+        self._sauce = self.ingredient_factory.create_sauce()
+        self._cheese = self.ingredient_factory.create_cheese()
+        self._pepperoni = self.ingredient_factory.create_pepperoni()
         
 
 

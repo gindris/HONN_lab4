@@ -1,12 +1,14 @@
-import PizzaIngredientFactory
+from ingredient_factories.PizzaIngredientFactory import PizzaIngredientFactory
 from ingredients.dough.ThickCrustDough import ThickCrustDough
-from ingredients.sauce.PlumTomatoSauce import PlumTomatoSauce
-from ingredients.cheese.Mozzarella import Mozzarella
+from ingredients.sauce.PlumTomatoSauce  import PlumTomatoSauce
+from ingredients.cheese.Mozzarella  import Mozzarella
 from ingredients.clams.FrozenClams import FrozenClams
 from ingredients.pepperoni.SlicedPepperoni import SlicedPepperoni
-from ingredients.veggies import EggPlant, Spinach, BlackOlives
+from ingredients.veggies.EggPlant import EggPlant
+from ingredients.veggies.Spinach import Spinach
+from ingredients.veggies.BlackOlives import BlackOlives
 
-class ChicagoIngredientFactory(PizzaIngredientFactory):
+class ChicagoPizzaIngredientFactory(PizzaIngredientFactory):
     def create_dough(self):
         return ThickCrustDough()
 
