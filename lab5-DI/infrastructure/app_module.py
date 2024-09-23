@@ -68,24 +68,4 @@ class AppModule(Module):
     def sales_man_provider(self, sms_sender: SmsSender, phone_book: IPhoneBook) -> SalesMan:
         return SalesMan(sms_sender, phone_book)
     
-    #held að configið eigi að vera í configure fallinu
-    # @provider
-    # def provide_phone_book(self, validator: PhoneNumberValidator, connection: sqlite3.Connection) -> IPhoneBook:
-    #     # Resolve PhoneBook implementation based on environment
-    #     if self.environment == Environment.DEVELOPMENT:
-    #         return PhoneBookFake(validator)
-    #     elif self.environment == Environment.STAGING:
-    #         repository = PhoneBookFileRepository(self.file_path)
-    #         return PhoneBook(repository, validator)
-    #     elif self.environment == Environment.PRODUCTION:
-    #         repository = PhoneBookSqliteRepository(connection)
-    #         return PhoneBook(repository, validator)
-        
-
-    #repository provider?
-    #sms_sender provider?
-    #salesman provider?
-    #binder.bind til að fá concrete class útfrá interface
-        
-    
     

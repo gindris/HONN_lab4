@@ -82,26 +82,6 @@ def sales_man_two(sales_man: SalesMan):
 
 def main():
     environment = Environment.DEVELOPMENT
-    
-    # ------------- REPLACE THIS PART WITH DEPENDENCY INJECTION THAT RESOLVES A PHONE BOOK AND THE SALES MEN -------------
-    # phone_book = None
-    # validator = PhoneNumberValidator()
-    # if environment == Environment.DEVELOPMENT:
-    #     phone_book = PhoneBookFake(validator)
-    # else:
-    #     repository: IPhoneBookRepository = None
-    #     if environment == Environment.STAGING:
-    #         repository = PhoneBookFileRepository("phone_book.json")
-    #     elif environment == Environment.PRODUCTION:
-    #         connection = sqlite3.connect("phone_book.db")
-    #         repository = PhoneBookSqliteRepository(connection)
-
-    #     phone_book = PhoneBook(repository, validator)
-
-    # sms_sender = SmsSender()
-    # sales_man1 = SalesMan(sms_sender, phone_book)
-    # sales_man2 = SalesMan(sms_sender, phone_book)
-    # -----------------------------------------------------------------------------------------------------------
     injector = Injector(AppModule(environment))
     phone_book = injector.get(IPhoneBook)
     sales_man_1 = injector.get(SalesMan)
