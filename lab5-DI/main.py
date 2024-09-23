@@ -81,7 +81,7 @@ def sales_man_two(sales_man: SalesMan):
 
 
 def main():
-    environment = Environment.DEVELOPMENT
+    environment = Environment.DEVELOPMENT #ath einhver böggur að nota STAGING, DEVELOPMENT og PRODUCTION virka fínt
     injector = Injector(AppModule(environment))
     phone_book = injector.get(IPhoneBook)
     sales_man_1 = injector.get(SalesMan)
