@@ -1,6 +1,9 @@
 import sqlite3
 from typing import List
 
+from injector import Injector
+from infrastructure.app_module import AppModule
+
 from database.i_phone_book_repository import IPhoneBookRepository
 from database.phone_book_file_repository import PhoneBookFileRepository
 from database.phone_book_sqlite_repository import PhoneBookSqliteRepository
@@ -79,26 +82,32 @@ def sales_man_two(sales_man: SalesMan):
 
 def main():
     environment = Environment.DEVELOPMENT
-
+    
     # ------------- REPLACE THIS PART WITH DEPENDENCY INJECTION THAT RESOLVES A PHONE BOOK AND THE SALES MEN -------------
-    phone_book = None
-    validator = PhoneNumberValidator()
-    if environment == Environment.DEVELOPMENT:
-        phone_book = PhoneBookFake(validator)
-    else:
-        repository: IPhoneBookRepository = None
-        if environment == Environment.STAGING:
-            repository = PhoneBookFileRepository("phone_book.json")
-        elif environment == Environment.PRODUCTION:
-            connection = sqlite3.connect("phone_book.db")
-            repository = PhoneBookSqliteRepository(connection)
+    # phone_book = None
+    # validator = PhoneNumberValidator()
+    # if environment == Environment.DEVELOPMENT:
+    #     phone_book = PhoneBookFake(validator)
+    # else:
+    #     repository: IPhoneBookRepository = None
+    #     if environment == Environment.STAGING:
+    #         repository = PhoneBookFileRepository("phone_book.json")
+    #     elif environment == Environment.PRODUCTION:
+    #         connection = sqlite3.connect("phone_book.db")
+    #         repository = PhoneBookSqliteRepository(connection)
 
-        phone_book = PhoneBook(repository, validator)
+    #     phone_book = PhoneBook(repository, validator)
 
-    sms_sender = SmsSender()
-    sales_man1 = SalesMan(sms_sender, phone_book)
-    sales_man2 = SalesMan(sms_sender, phone_book)
+    # sms_sender = SmsSender()
+    # sales_man1 = SalesMan(sms_sender, phone_book)
+    # sales_man2 = SalesMan(sms_sender, phone_book)
     # -----------------------------------------------------------------------------------------------------------
+    injector = Injector(AppModule(environment))
+    phone_book = injector.get(IPhoneBook)
+    sales_man_1 = injector.get(SalesMan)
+    sales_man_2 = injector.get(SalesMan)
+   
+
 
     print("\n---------------- failure adding numbers ----------------\n")
     failure_adding_numbers(phone_book)
@@ -107,10 +116,10 @@ def main():
     seed_phone_book(phone_book)
 
     print("\n---------------- executing operations for sales man 1 ----------------\n")
-    sales_man_one(sales_man1, phone_book)
+    sales_man_one(sales_man_1, phone_book)
 
     print("\n---------------- executing operations for sales man 2 ----------------\n")
-    sales_man_two(sales_man2)
+    sales_man_two(sales_man_2)
 
 
 if __name__ == "__main__":

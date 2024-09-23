@@ -1,9 +1,11 @@
 import json
 from typing import Optional
+from injector import inject
 from database.i_phone_book_repository import IPhoneBookRepository
 from phone_book.phone_book_entry import PhoneBookEntry
 
 class PhoneBookFileRepository(IPhoneBookRepository):
+    @inject
     def __init__(self, file_path: str) -> None:
         self.__file_path = file_path
         self.__entries = {}
