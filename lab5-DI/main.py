@@ -1,9 +1,7 @@
-import sqlite3
 from typing import List
 
-from injector import Injector
 from infrastructure.app_module import AppModule
-
+from injector import Injector
 from database.i_phone_book_repository import IPhoneBookRepository
 from database.phone_book_file_repository import PhoneBookFileRepository
 from database.phone_book_sqlite_repository import PhoneBookSqliteRepository
@@ -18,7 +16,6 @@ from phone_book.phone_number_validator import PhoneNumberValidator
 from sms.message import Message
 from sms.sms_sender import SmsSender
 from sales_man import SalesMan
-
 
 def print_messages(messages: List[Message]):
     for message in messages:
