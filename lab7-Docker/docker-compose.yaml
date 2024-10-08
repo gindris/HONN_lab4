@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  api-service:
+    build: .
+    depends_on:
+      - migration-service
+    volumes:
+      - sqlite_data:/app/sqlite_data
+
+  migration-service:
+    build: .
+    command: ['alembic', 'upgrade', 'head']
+    volumes:
+      - sqlite_data:/app/sqlite_data
+    
+
+volumes:
+  sqlite_data:
