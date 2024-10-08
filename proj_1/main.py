@@ -11,7 +11,7 @@ from client.services.order_service import OrderService
 if __name__ == '__main__':
     settings = Settings()
     injector = Injector(AppModule(settings))
-    order_service = injector.get(OrderService)
+    order_service = injector.get(OrderService) #error, missing 3 positional arguments: 'payment_service', 'order_repository', and 'logger'
 
     order_service.place_order(Order(
         description="Test order",
